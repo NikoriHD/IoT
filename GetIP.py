@@ -1,8 +1,4 @@
 import socket
-
-hostname = socket.gethostname()
-
-ip_address = socket.gethostbyname(hostname)
-
-print(f"Hostname: {hostname}")
-print(f"IP Address: {ip_address}")
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("10.0.0.0", 80))
+print(f'Server IP address: {s.getsockname()[0]}')
